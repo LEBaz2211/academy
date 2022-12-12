@@ -1,0 +1,11 @@
+<h1>Add an user</h1>
+
+<form action="/user/add" method="POST">
+	Firstname:
+	<input type="text" name="firstname" value= "<%= firstname %>" /><br />
+	Lastname:
+	<input type="text" name="lastname" value="<%= lastname %>" /><br />
+	<input type="hidden" name="iduser" value="<%= iduser %>" />
+	<input type="submit" name="save" value="Add" /><br />
+	<input type="submit" value="Back to the list" formaction="/user"/>
+</form>
