@@ -13,9 +13,13 @@ router.get('/login', userController.userFormLogin)
 
 router.post('/login', userController.userLogin)
 
-router.get('/lectures/register/:idlecture', userController.userLerctureRegister)
+router.get('/lectures/register/:idlecture', userController.userLectureRegister)
 
 router.get('/cart', userController.userCart)
+
+router.get('/cart/finish', userController.userCartFinish)
+
+router.get('/cart/thanks', userController.userCartThanks)
 
 //Lecture related routes
 

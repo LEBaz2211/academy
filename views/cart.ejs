@@ -1,13 +1,17 @@
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+
 <h1/>IT Academy</h1>
 
-<a href="/lectures/add">Add a new lecture</a>
-<h2>List of courses</h2>
-<button onclick="window.location.href='/cart/'">See your cart</button>
-<button onclick="window.location.href='/login/'">Login</button>
+<h2>Cart</h2>
+<button onclick="window.location.href='/cart/finish'">Finalise order</button>
+<button onclick="window.location.href='/lectures/'">Back to courses list</button>
 
 
 
-<table id="lectures">
+<table id="cart">
 	<thead>
 		<tr>
 			<th>Id</th>
@@ -27,7 +31,7 @@
 				<td><%= lecture.startDate.getMonth()+ "-" +lecture.startDate.getDate()+ "-" +lecture.startDate.getFullYear() %></td>
 				<td><%= lecture.endDate.getMonth()+ "-" +lecture.endDate.getDate()+ "-" +lecture.endDate.getFullYear() %></td>
 				<td>
-					<a href="/lectures/addToCart/:<%= lecture.idlecture %>">Register</a>
+					<button onclick="window.location.href='/cart/remove/<%= lecture.idlecture %>'">Remove</a>
 				</td>
 			</tr>
 			<% }) %>

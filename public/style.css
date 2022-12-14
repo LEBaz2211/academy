@@ -1,0 +1,18 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #0094ff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0094ff;
+}
+
+table, thead, tbody, tr, td {
+    border: 1px solid #000000;
+    padding: 8px;
+    border-collapse: collapse;
+}

@@ -1,3 +1,8 @@
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+
 <h1/>IT Academy</h1>
 
 <a href="/lectures/add">Add a new lecture</a>
@@ -27,7 +32,7 @@
 				<td><%= lecture.startDate.getMonth()+ "-" +lecture.startDate.getDate()+ "-" +lecture.startDate.getFullYear() %></td>
 				<td><%= lecture.endDate.getMonth()+ "-" +lecture.endDate.getDate()+ "-" +lecture.endDate.getFullYear() %></td>
 				<td>
-					<a href="/lectures/addToCart/:<%= lecture.idlecture %>">Register</a>
+					<a href="/lectures/register/<%= lecture.idlecture %>">Register</a>
 				</td>
 			</tr>
 			<% }) %>

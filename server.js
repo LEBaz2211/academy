@@ -9,7 +9,13 @@ app.use(session({
     saveUninitialized: true
 }))
 
+app.use(express.static('public'))
+
 session.logged = false
+
+session.newuser = true
+
+session.end = false
 
 console.log(session)
 
