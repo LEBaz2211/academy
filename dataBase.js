@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
     password: 'MemyselfandI269',
-    database: 'lectures'
+    database: 'academy'
 })
 
 connection.connect(function (error) { if (error) console.log(error); })
