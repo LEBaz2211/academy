@@ -1,5 +1,5 @@
 <a href="/lectures/add">Add a new lecture</a>
-<h1>Lectures list</h1>
+<h1>List of courses</h1>
 
 <table id="lectures">
 	<thead>
@@ -13,17 +13,17 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% for (let i = 0 ; i < lectureList.length ; i++)  { %>
+		<% lectures.forEach((lecture, index)=>{ %>
 			<tr>
-				<td><%= lectureList[i].idlecture %></td>
-				<td><%= lectureList[i].name %></td>
-				<td><%= lectureList[i].price %></td>
-				<td><%= lectureList[i].startDate %></td>
-				<td><%= lectureList[i].endDate %></td>
+				<td><%= lecture.idlecture %></td>
+				<td><%= lecture.name %></td>
+				<td><%= lecture.price %></td>
+				<td><%= lecture.startDate.getMonth()+ "-" +lecture.startDate.getDate()+ "-" +lecture.startDate.getFullYear() %></td>
+				<td><%= lecture.endDate.getMonth()+ "-" +lecture.endDate.getDate()+ "-" +lecture.endDate.getFullYear() %></td>
 				<td>
-					<a href="/lectures/<%= lectureList[i].idlecture %>/edit">Register</a>
+					<a href="/lectures/addToCart/:<%= lecture.idlecture %>">Register</a>
 				</td>
 			</tr>
-			<% } %>
+			<% }) %>
 	</tbody>
 </table>

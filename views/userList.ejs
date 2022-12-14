@@ -5,7 +5,7 @@
 	<% for (let i = 0 ; i < users.length ; i++)  { %>
 	<li>
 		<%= users[i].lastname %>  <%= users[i].firstname %>
-		<a href="/user/update/<%= i%>">Modify</a>
+		<a href="/user/connect/<%= i%>">Connect</a>
 		<a href="/user/delete/<%= i%>">Delete</a>
 		<a href="/user/show/:<%= i%>">Show</a>
 	</li>

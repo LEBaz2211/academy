@@ -4,7 +4,6 @@ class Lecture{
         this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.idlecture = NaN;
     }
 }
 

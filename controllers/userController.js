@@ -2,26 +2,27 @@ let User = require('../models/userModel')
 
 let userList = []
 
-exports.userList = function (req, res){
-	res.render('userList.ejs', {users: userList})
+exports.userList = (req, res) => {
+	connection.query("select * from user", (err, result) => {
+		if (err) console.log(err)
+		res.render('userList.ejs', { users: result })
+    })
+
+exports.userFormAdd = (req, res) => {
+	res.render('userAdd.ejs', { lastname: "", firstname: "" })
 }
 
-exports.userFormAdd = function (req, res) {
-	res.render('userAdd.ejs', { iduser: "-1", lastname: "", firstname: "" })
-}
-
-exports.userNew = function (req, res) {
-	let iduser = req.body.iduser
+exports.userNew = (req, res) => {
 	let firstname = req.body.firstname
 	let lastname = req.body.lastname
-
-
-	let user = new User(lastname, firstname)
-	userList.push(user)
+	let newUser = new User(lastname, firstname)
+	connection.query("INSERT INTO user set ?", newUser, (err, resultSQL) => {
+		if (err) console.log(err)
+	})
 	res.redirect('/user')
 }
 
-exports.userShow = function (req, res) {
+exports.userShow = (req, res) => {
 	let iduser = req.params.iduser
 	res.render('userShow.ejs', { iduser : iduser , users : userList})
 }
