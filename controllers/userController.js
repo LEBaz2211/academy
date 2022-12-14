@@ -1,28 +1,55 @@
-let User = require('../models/userModel')
+let connection = require('../dataBase.js')
 
-let userList = []
+let cart = []
 
-exports.userList = (req, res) => {
+exports.userFormLogin = (req, res) => {
+	res.render('userLogin.ejs', { name: ""})
+}
+
+exports.userLogin = (req, res) => {
 	connection.query("select * from user", (err, result) => {
 		if (err) console.log(err)
-		res.render('userList.ejs', { users: result })
-    })
-
-exports.userFormAdd = (req, res) => {
-	res.render('userAdd.ejs', { lastname: "", firstname: "" })
-}
-
-exports.userNew = (req, res) => {
-	let firstname = req.body.firstname
-	let lastname = req.body.lastname
-	let newUser = new User(lastname, firstname)
-	connection.query("INSERT INTO user set ?", newUser, (err, resultSQL) => {
-		if (err) console.log(err)
+		result.forEach(user => {
+			if (user.name == req.body.name) {
+				req.session.user = req.body.name
+				req.session.logged = true
+				req.session.newuser = false
+				console.log(req.session)
+				res.redirect('/user/lectures/')
+			}
+			else {
+				req.session.user = req.body.name
+				req.session.logged = true
+				req.session.newuser = true
+				console.log(req.session)
+				res.redirect('/lectures')
+			}
+		})
 	})
-	res.redirect('/user')
 }
 
-exports.userShow = (req, res) => {
-	let iduser = req.params.iduser
-	res.render('userShow.ejs', { iduser : iduser , users : userList})
+/*exports.userLectures = (req, res) = {
+	if(req.session.logged) {
+		connection.query("select * from lecture", (err, result) => {
+			
+*/
+
+exports.userLectureRegister = (req, res) => {
+	cart.push(req.params.idlecture)
+	res.redirect('/lectures')
+}
+
+exports.userCart = (req, res) => {
+	let lectureList = []
+	connection.query("select * from lecture", (err, result) => {
+		if (err) console.log(err)
+		result.forEach(lecture => {
+			cart.forEach(id => {
+				if (lecture.idlecture == id) {
+					lectureList.push(lecture)
+				}
+			})
+		})
+	})
+    res.render('cart.ejs', { lectures: lectureList })
 }

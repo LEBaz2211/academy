@@ -17,13 +17,5 @@ exports.lectureNew = (req, res) => {
 }
 
 exports.lectureFormAdd = (req, res) => {
-    
     res.render('lectureFormAdd.ejs', { name: "", price: "", startDate: "", endDate: "" })
-}
-
-exports.lectureAddToCart = (req, res) => {
-    let idlecture = req.params.idlecture
-    let cart = new Cart()
-    cart.addLecture(lectureList[idlecture])
-    res.redirect('/lectures')
 }

@@ -4,19 +4,18 @@ let router = express.Router()
 
 let userController = require('./controllers/userController')
 let lectureController = require('./controllers/lectureController')
-let cartController = require('./controllers/cartController')
 
 router.get('/', (req, res) => res.redirect('/lectures'))
 
 //User related routes
 
-router.get('/user', userController.userList)
+router.get('/login', userController.userFormLogin)
 
-router.get('/user/show/:iduser', userController.userShow)
+router.post('/login', userController.userLogin)
 
-router.get('/user/add', userController.userFormAdd)
+router.get('/lectures/register/:idlecture', userController.userLerctureRegister)
 
-router.post('/user/add', userController.userNew)
+router.get('/cart', userController.userCart)
 
 //Lecture related routes
 

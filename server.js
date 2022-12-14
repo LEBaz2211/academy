@@ -1,6 +1,17 @@
 let express = require("express")
+let session = require('express-session')
 
 let app = express()
+
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true
+}))
+
+session.logged = false
+
+console.log(session)
 
 app.set('view engine', 'ejs')
 
@@ -16,3 +27,5 @@ app.use('/', router)
 app.listen(80, () => {
     console.log('Server is running on port 80')
 })
+
+module.exports = session
