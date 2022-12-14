@@ -27,6 +27,7 @@ exports.userLogin = (req, res) => {
 					res.redirect('/lectures/')
 				}
 			}
+			
 		})
 		
         if (req.session.newuser == true) {
