@@ -1,0 +1,29 @@
+<a href="/lectures/add">Add a new lecture</a>
+<h1>Lectures list</h1>
+
+<table id="lectures">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Start</th>
+			<th>End</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for (let i = 0 ; i < lectureList.length ; i++)  { %>
+			<tr>
+				<td><%= lectureList[i].idlecture %></td>
+				<td><%= lectureList[i].name %></td>
+				<td><%= lectureList[i].price %></td>
+				<td><%= lectureList[i].startDate %></td>
+				<td><%= lectureList[i].endDate %></td>
+				<td>
+					<a href="/lectures/<%= lectureList[i].idlecture %>/edit">Register</a>
+				</td>
+			</tr>
+			<% } %>
+	</tbody>
+</table>

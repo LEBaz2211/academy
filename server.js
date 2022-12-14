@@ -6,7 +6,7 @@ app.set('view engine', 'ejs')
 
 app.use(express.urlencoded({ extended: true }))
 
-let router = require('./mysroutes.js')
+let router = require('./routes.js')
 app.use('/', router)
 
 /*app.get('/', (req, res) => {

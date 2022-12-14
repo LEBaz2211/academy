@@ -1,0 +1,14 @@
+<h1>Add a lecture</h1>
+
+<form action="/lectures/add" method="POST">
+	Name:
+	<input type="text" name="name" value= "<%= name %>"/><br />
+	Price:
+	<input type="text" name="price" value= "<%= price %>"/><br />
+	Start Date:
+	<input type="text" name="startDate" value= "<%= startDate %>"/><br />
+	End Date:
+	<input type="text" name="endDate" value= "<%= endDate %>"/><br />
+	<input type="submit" name="save" value="Add" /><br />
+	<input type="submit" value="Back to the list" formaction="/lectures"/>
+</form>
